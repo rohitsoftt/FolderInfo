@@ -9,7 +9,8 @@ namespace FolderInfo
     public class LDirInfo
     {
         public string ScanDirPath { get; set; }
-        public string[] RestrictedDirForScan { get; set; }
+        public string ScanFileName { get; set; }
+        public string[] RestrictedDirForScan { get; set; } = Array.Empty<string>();
         public long TotalDirectories { get; set; }
         public long TotalDirectoriesContainsFiles { get; set; }
         public long TotalFiles { get; set; }
