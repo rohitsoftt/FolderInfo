@@ -1,4 +1,5 @@
 ﻿using FolderInfo;
+using FolderInfo.PrependText;
 using Newtonsoft.Json;
 using System.Globalization;
 
@@ -29,15 +30,23 @@ do
 {
     try
     {
-        var fileService = new FileService();
-        fileService.TakeConsoleInput();
-        fileService.CalculateResult();
-        fileService.PrintResults();
-        if (fileService.SaveFile.Trim() == "Y")
+        Console.WriteLine($"Please select a service to use :: {Environment.NewLine}");
+        Console.WriteLine("1. Folder file scanning (will give you count of files, lines, directories)");
+        Console.WriteLine("2. Prepend text into file text service");
+        var input = Console.ReadLine();
+        switch (input)
         {
-            Console.WriteLine("File Saved at location :: " + fileService.SaveInFile()); 
+            case "1":
+                FileServiceClient.StartProcess();
+                break;
+            case"2":
+                PrependTextServiceClient.StartProcess();
+                break;
+            default:
+                Console.WriteLine("Invalid Input...");
+                break;
         }
-        Console.Write("Do you have anoter directory to scan(y/n) :: ");
+        Console.Write("Do you want to use services again (y/n)? :: ");
         Isanother = (Console.ReadLine() ?? "").Trim() == "y";
     }
     catch(Exception ex)
