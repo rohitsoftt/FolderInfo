@@ -47,6 +47,7 @@ namespace FolderInfo.PrependText
             }
             //Console.WriteLine($"Info :: {Environment.NewLine} 1.use $CurrentDateTime$ in append text file to update with dateTime in dd-mon-yyyy HH:MM:SS format {Environment.NewLine} 2. use $CountryCode$ in append text file to update with country  ");
         }
+
         public void Process()
         {
             WalkDirectoryTree(_directoryInfo);
